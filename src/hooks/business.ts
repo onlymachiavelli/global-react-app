@@ -49,6 +49,12 @@ const useBusiness = () => {
     }
   }
 
+  const getMine = async (token: string) => {
+    if (!token) {
+      throw new Error("Token is required")
+    }
+  }
+
   return {
     create,
     handleDataInput,

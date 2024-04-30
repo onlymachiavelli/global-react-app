@@ -34,7 +34,7 @@ const useAccount = () => {
 
       if (loginAttempt.ok) {
         toast.success("Logged in successfully")
-        //window.location.href = "/dashboard"
+        window.location.href = "/dashboard"
       } else {
         toast.error("Invalid Credentials")
       }
