@@ -76,71 +76,6 @@ const AdminMenu = ({ ...props }) => {
         </NavbarContent>
 
         <NavbarContent className="hidden sm:flex gap-4 " justify="center">
-          <NavbarBrand className="gap-3 px-7 ">
-            <Link href={"/dashboard"}>
-              <div className="w-10 h-10  flex items-center justify-center  relative">
-                {/*
-                  <Image src={Inariam} alt={"Inariam Logo"} fill />
-                  */}
-              </div>
-            </Link>
-          </NavbarBrand>
-          <NavbarItem isActive>
-            <Link
-              color="foreground"
-              href="/dashboard"
-              aria-current="page"
-              className=" text-xs flex items-center justify-center gap-2"
-            >
-              <TfiDashboard style={{ fontSize: "1.5rem" }} />
-              Home
-            </Link>
-          </NavbarItem>
-
-          <NavbarItem>
-            <Link
-              color="foreground"
-              href="/policies"
-              className=" text-xs quick flex items-center justify-center gap-2"
-            >
-              <MdOutlinePolicy style={{ fontSize: "1.5rem" }} />
-              Manage Policies
-            </Link>
-          </NavbarItem>
-          <NavbarItem>
-            <Link
-              color="foreground"
-              href="/roles"
-              className=" text-xs quick flex items-center justify-center gap-2"
-            >
-              <RiFunctionLine style={{ fontSize: "1.5rem" }} />
-              Manage Roles
-            </Link>
-          </NavbarItem>
-          <NavbarItem>
-            <Link
-              color="foreground"
-              href="/groups"
-              className=" text-xs flex items-center justify-center gap-2"
-            >
-              <AiOutlineGroup style={{ fontSize: "1.5rem" }} />
-              Manage Groups
-            </Link>
-          </NavbarItem>
-
-          <NavbarItem>
-            <Link
-              color="foreground"
-              href="/users"
-              className=" text-xs flex items-center justify-center gap-2"
-            >
-              <AiOutlineUserSwitch style={{ fontSize: "1.5rem" }} />
-              Manage Users
-            </Link>
-          </NavbarItem>
-        </NavbarContent>
-
-        <NavbarContent justify="end">
           <NavbarItem>
             <Input
               classNames={{
@@ -156,6 +91,9 @@ const AdminMenu = ({ ...props }) => {
               type="search"
             />
           </NavbarItem>
+        </NavbarContent>
+
+        <NavbarContent justify="end">
           <NavbarItem>
             <NotificationBell Counter={props.Counter} />
           </NavbarItem>

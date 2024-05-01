@@ -1,4 +1,7 @@
+"use client"
+
 import React from "react"
+import { useProducts } from "@/hooks"
 import {
   Table,
   TableHeader,
@@ -15,17 +18,27 @@ import {
   Chip,
   User,
   Pagination,
+  Switch,
 } from "@nextui-org/react"
-import Link from "next/link"
+import { useSession } from "next-auth/react"
+
+import { MdDelete } from "react-icons/md"
+import { toast } from "react-hot-toast"
+
+import { FaRegEye } from "react-icons/fa6"
+import { FaEdit } from "react-icons/fa"
 
 const columns = [
   { name: "ID", uid: "id", sortable: true },
   { name: "NAME", uid: "name", sortable: true },
-  { name: "EMAIL", uid: "email", sortable: true },
-  { name: "ADDRESS", uid: "address", sortable: true },
-  { name: "PHONE", uid: "phone", sortable: true },
-  { name: "DESCRIPTION", uid: "description", sortable: false },
-  { name: "ACTION", uid: "action" },
+  { name: "BUSINESS ID", uid: "business_id", sortable: true },
+  { name: "PRICE", uid: "price", sortable: true },
+  { name: "QUANTITY", uid: "quantity", sortable: true },
+  { name: "CATEGORY", uid: "category", sortable: true },
+  { name: "CREATED AT", uid: "created_at", sortable: true },
+  { name: "DESCRIPTION", uid: "description", sortable: true },
+  { name: "ACTIONS", uid: "actions", sortable: false },
+  { name: "DISABILITY", uid: "disabled", sortable: false },
 ]
 
 export const VerticalDotsIcon = ({
@@ -135,17 +148,6 @@ const statusOptions: { name: string; uid: string }[] = [
   { name: "Vacation", uid: "vacation" },
 ]
 
-interface dataType {
-  id: number
-  name: string
-  address: string
-  phone: string
-  email: string
-  description: string
-  category: string
-  status: string
-}
-
 const statusColorMap: any = {
   active: "success",
   paused: "danger",
@@ -154,22 +156,24 @@ const statusColorMap: any = {
 
 const INITIAL_VISIBLE_COLUMNS = [
   "name",
-  "phone",
-  "email",
-  "description",
-  "id",
   "address",
-  "action",
+  "id",
+  "description",
+  "category",
+  "status",
+  "created_at",
+  "updated_at",
+  "actions",
+  "disabled",
 ]
-
-export default function App({ businesses = [] }: any) {
+export default function App({ Data = [] }: any) {
   const [filterValue, setFilterValue]: any = React.useState("")
   const [selectedKeys, setSelectedKeys]: any = React.useState(new Set([]))
   const [visibleColumns, setVisibleColumns]: any = React.useState(
     new Set(INITIAL_VISIBLE_COLUMNS)
   )
   const [statusFilter, setStatusFilter] = React.useState(new Set())
-  const [rowsPerPage, setRowsPerPage] = React.useState(8)
+  const [rowsPerPage, setRowsPerPage] = React.useState(5)
   const [sortDescriptor, setSortDescriptor] = React.useState({
     column: "id",
     direction: "ascending",
@@ -187,7 +191,7 @@ export default function App({ businesses = [] }: any) {
   }, [visibleColumns])
 
   const filteredItems = React.useMemo(() => {
-    let filteredBusinesses = [...businesses]
+    let filteredBusinesses = [...Data]
 
     if (hasSearchFilter) {
       filteredBusinesses = filteredBusinesses.filter((business) =>
@@ -201,7 +205,7 @@ export default function App({ businesses = [] }: any) {
     }
 
     return filteredBusinesses
-  }, [businesses, filterValue, statusFilter])
+  }, [Data, filterValue, statusFilter])
 
   const pages = Math.ceil(filteredItems.length / rowsPerPage)
 
@@ -231,7 +235,8 @@ export default function App({ businesses = [] }: any) {
           <User
             avatarProps={{
               radius: "lg",
-              src: "https://cdn-icons-png.flaticon.com/512/3515/3515146.png",
+              src: business.image,
+              isBordered: true,
             }}
             description={business.email}
             name={cellValue}
@@ -250,19 +255,35 @@ export default function App({ businesses = [] }: any) {
             {cellValue}
           </Chip>
         )
-      case "action":
+      case "actions":
         return (
-          <div className="relative flex justify-end items-center gap-2">
+          <div className="relative flex  gap-2">
+            <Button isIconOnly color="success" className="!text-white">
+              <FaRegEye />
+            </Button>
             <Button
+              isIconOnly
               color="danger"
-              fullWidth
-              className="w-40"
-              as={Link}
-              href={`/dashboard/business/${business.id}`}
+              onClick={() => {
+                window.location.href = `/dashboard/business/inventory/${business.id}/delete/`
+              }}
             >
-              Visit {business.name}
+              <MdDelete />
+            </Button>
+            <Button isIconOnly color="secondary">
+              <FaEdit />
             </Button>
           </div>
+        )
+      case "disabled":
+        return (
+          <>
+            <Switch
+              defaultSelected
+              aria-label="Disabled ?"
+              isSelected={!business.disabled}
+            />
+          </>
         )
       default:
         return cellValue
@@ -319,30 +340,6 @@ export default function App({ businesses = [] }: any) {
                   endContent={<ChevronDownIcon className="text-small" />}
                   variant="flat"
                 >
-                  Status
-                </Button>
-              </DropdownTrigger>
-              <DropdownMenu
-                disallowEmptySelection
-                aria-label="Table Columns"
-                closeOnSelect={false}
-                selectedKeys={statusFilter as any}
-                selectionMode="multiple"
-                onSelectionChange={setStatusFilter as any}
-              >
-                {statusOptions.map((status) => (
-                  <DropdownItem key={status.uid} className="capitalize">
-                    {capitalize(status.name)}
-                  </DropdownItem>
-                ))}
-              </DropdownMenu>
-            </Dropdown>
-            <Dropdown>
-              <DropdownTrigger className="hidden sm:flex">
-                <Button
-                  endContent={<ChevronDownIcon className="text-small" />}
-                  variant="flat"
-                >
                   Columns
                 </Button>
               </DropdownTrigger>
@@ -361,19 +358,11 @@ export default function App({ businesses = [] }: any) {
                 ))}
               </DropdownMenu>
             </Dropdown>
-            <Button
-              color="primary"
-              endContent={<PlusIcon />}
-              as={Link}
-              href="/dashboard/business/create"
-            >
-              Add New Business
-            </Button>
           </div>
         </div>
         <div className="flex justify-between items-center">
           <span className="text-default-400 text-small">
-            Total {businesses?.length} Businesses
+            Total {Data?.length} Businesses
           </span>
           <label className="flex items-center text-default-400 text-small">
             Rows per page:
@@ -394,7 +383,7 @@ export default function App({ businesses = [] }: any) {
     statusFilter,
     visibleColumns,
     onRowsPerPageChange,
-    businesses?.length,
+    Data?.length,
     onSearchChange,
     hasSearchFilter,
   ])
@@ -466,11 +455,11 @@ export default function App({ businesses = [] }: any) {
           </TableColumn>
         )}
       </TableHeader>
-      <TableBody emptyContent="No businesses found" items={sortedItems}>
-        {(business) => (
-          <TableRow key={business.id}>
+      <TableBody emptyContent="No Product found" items={sortedItems}>
+        {(prod) => (
+          <TableRow key={prod.id}>
             {(columnKey) => (
-              <TableCell>{renderCell(business, columnKey)}</TableCell>
+              <TableCell>{renderCell(prod, columnKey)}</TableCell>
             )}
           </TableRow>
         )}
