@@ -8,6 +8,8 @@ import { Navbar, InfoCard } from "@/components/molecules"
 import { Loader } from "@/components/atoms"
 import { Toaster } from "react-hot-toast"
 
+import { Button, Link } from "@nextui-org/react"
+
 const Page = () => {
   const { status, data } = useSession()
   const { clients, fetchClient } = useClient()
@@ -45,6 +47,15 @@ const Page = () => {
               <Clients Data={clients} />
             </div>
           </div>
+
+          <Button
+            className="fixed bottom-10 right-10 "
+            color="danger"
+            as={Link}
+            href={` /dashboard/business/${id}/crm/send`}
+          >
+            Broadcast
+          </Button>
         </aside>
       </main>
 
