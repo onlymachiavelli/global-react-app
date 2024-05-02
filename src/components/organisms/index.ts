@@ -1,3 +1,5 @@
 export { default as Sidebar } from "./sidebar"
 export { default as BusinessTable } from "./business"
 export { default as Stock } from "./stock"
+export { default as Orders } from "./orders"
+export { default as Clients } from "./clients"
