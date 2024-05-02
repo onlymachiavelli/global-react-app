@@ -47,7 +47,7 @@ const Page = () => {
     <>
       {(status === "loading" || isLoading) && <Loader />}
       <main className="w-full h-auto flex items-center justify-center">
-        <Sidebar />
+        <Sidebar ID={id} />
         <aside className="w-10/12 h-auto min-h-screen overflow-y-hidden">
           <Navbar />
 

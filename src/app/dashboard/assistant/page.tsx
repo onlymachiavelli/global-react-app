@@ -5,7 +5,7 @@ const Page = () => {
         <div className="flex flex-row h-full w-full overflow-x-hidden">
           <div className="flex flex-col py-8 pl-6 pr-2 w-64 bg-white flex-shrink-0">
             <div className="flex flex-row items-center justify-center h-12 w-full">
-              <div className="flex items-center justify-center rounded-2xl text-indigo-700 bg-indigo-100 h-10 w-10">
+              <div className="flex items-center justify-center rounded-2xl text-danger-700 bg-indigo-100 h-10 w-10">
                 <svg
                   className="w-6 h-6"
                   fill="none"
@@ -23,7 +23,7 @@ const Page = () => {
               </div>
               <div className="ml-2 font-bold text-2xl">QuickChat</div>
             </div>
-            <div className="flex flex-col items-center bg-indigo-100 border border-gray-200 mt-4 w-full py-6 px-4 rounded-lg">
+            <div className="flex flex-col items-center bg-danger-100 border border-gray-200 mt-4 w-full py-6 px-4 rounded-lg">
               <div className="h-20 w-20 rounded-full border overflow-hidden">
                 <img
                   src="https://avatars3.githubusercontent.com/u/2763884?s=128"
@@ -34,7 +34,7 @@ const Page = () => {
               <div className="text-sm font-semibold mt-2">Aminos Co.</div>
               <div className="text-xs text-gray-500">Lead UI/UX Designer</div>
               <div className="flex flex-row items-center mt-3">
-                <div className="flex flex-col justify-center h-4 w-8 bg-indigo-500 rounded-full">
+                <div className="flex flex-col justify-center h-4 w-8 bg-danger-500 rounded-full">
                   <div className="h-3 w-3 bg-white rounded-full self-end mr-1"></div>
                 </div>
                 <div className="leading-none ml-1 text-xs">Active</div>
@@ -49,7 +49,7 @@ const Page = () => {
               </div>
               <div className="flex flex-col space-y-1 mt-4 -mx-2 h-48 overflow-y-auto">
                 <button className="flex flex-row items-center hover:bg-gray-100 rounded-xl p-2">
-                  <div className="flex items-center justify-center h-8 w-8 bg-indigo-200 rounded-full">
+                  <div className="flex items-center justify-center h-8 w-8 bg-danger-200 rounded-full">
                     H
                   </div>
                   <div className="ml-2 text-sm font-semibold">Henry Boyd</div>
@@ -94,7 +94,7 @@ const Page = () => {
               </div>
               <div className="flex flex-col space-y-1 mt-4 -mx-2">
                 <button className="flex flex-row items-center hover:bg-gray-100 rounded-xl p-2">
-                  <div className="flex items-center justify-center h-8 w-8 bg-indigo-200 rounded-full">
+                  <div className="flex items-center justify-center h-8 w-8 bg-danger-200 rounded-full">
                     H
                   </div>
                   <div className="ml-2 text-sm font-semibold">Henry Boyd</div>
@@ -109,7 +109,7 @@ const Page = () => {
                   <div className="grid grid-cols-12 gap-y-2">
                     <div className="col-start-1 col-end-8 p-3 rounded-lg">
                       <div className="flex flex-row items-center">
-                        <div className="flex items-center justify-center h-10 w-10 rounded-full bg-indigo-500 flex-shrink-0">
+                        <div className="flex items-center justify-center h-10 w-10 rounded-full bg-danger-500 flex-shrink-0">
                           A
                         </div>
                         <div className="relative ml-3 text-sm bg-white py-2 px-4 shadow rounded-xl">
@@ -119,7 +119,7 @@ const Page = () => {
                     </div>
                     <div className="col-start-1 col-end-8 p-3 rounded-lg">
                       <div className="flex flex-row items-center">
-                        <div className="flex items-center justify-center h-10 w-10 rounded-full bg-indigo-500 flex-shrink-0">
+                        <div className="flex items-center justify-center h-10 w-10 rounded-full bg-danger-500 flex-shrink-0">
                           A
                         </div>
                         <div className="relative ml-3 text-sm bg-white py-2 px-4 shadow rounded-xl">
@@ -133,20 +133,20 @@ const Page = () => {
                     </div>
                     <div className="col-start-6 col-end-13 p-3 rounded-lg">
                       <div className="flex items-center justify-start flex-row-reverse">
-                        <div className="flex items-center justify-center h-10 w-10 rounded-full bg-indigo-500 flex-shrink-0">
+                        <div className="flex items-center justify-center h-10 w-10 rounded-full bg-danger-500 flex-shrink-0">
                           A
                         </div>
-                        <div className="relative mr-3 text-sm bg-indigo-100 py-2 px-4 shadow rounded-xl">
+                        <div className="relative mr-3 text-sm bg-danger-100 py-2 px-4 shadow rounded-xl">
                           <div>I'm ok what about you?</div>
                         </div>
                       </div>
                     </div>
                     <div className="col-start-6 col-end-13 p-3 rounded-lg">
                       <div className="flex items-center justify-start flex-row-reverse">
-                        <div className="flex items-center justify-center h-10 w-10 rounded-full bg-indigo-500 flex-shrink-0">
+                        <div className="flex items-center justify-center h-10 w-10 rounded-full bg-danger-500 flex-shrink-0">
                           A
                         </div>
-                        <div className="relative mr-3 text-sm bg-indigo-100 py-2 px-4 shadow rounded-xl">
+                        <div className="relative mr-3 text-sm bg-danger-100 py-2 px-4 shadow rounded-xl">
                           <div>
                             Lorem ipsum dolor sit, amet consectetur adipisicing.
                             ?
@@ -156,7 +156,7 @@ const Page = () => {
                     </div>
                     <div className="col-start-1 col-end-8 p-3 rounded-lg">
                       <div className="flex flex-row items-center">
-                        <div className="flex items-center justify-center h-10 w-10 rounded-full bg-indigo-500 flex-shrink-0">
+                        <div className="flex items-center justify-center h-10 w-10 rounded-full bg-danger-500 flex-shrink-0">
                           A
                         </div>
                         <div className="relative ml-3 text-sm bg-white py-2 px-4 shadow rounded-xl">
@@ -166,10 +166,10 @@ const Page = () => {
                     </div>
                     <div className="col-start-6 col-end-13 p-3 rounded-lg">
                       <div className="flex items-center justify-start flex-row-reverse">
-                        <div className="flex items-center justify-center h-10 w-10 rounded-full bg-indigo-500 flex-shrink-0">
+                        <div className="flex items-center justify-center h-10 w-10 rounded-full bg-danger-500 flex-shrink-0">
                           A
                         </div>
-                        <div className="relative mr-3 text-sm bg-indigo-100 py-2 px-4 shadow rounded-xl">
+                        <div className="relative mr-3 text-sm bg-danger-100 py-2 px-4 shadow rounded-xl">
                           <div>
                             Lorem ipsum dolor sit, amet consectetur adipisicing.
                             ?
@@ -182,7 +182,7 @@ const Page = () => {
                     </div>
                     <div className="col-start-1 col-end-8 p-3 rounded-lg">
                       <div className="flex flex-row items-center">
-                        <div className="flex items-center justify-center h-10 w-10 rounded-full bg-indigo-500 flex-shrink-0">
+                        <div className="flex items-center justify-center h-10 w-10 rounded-full bg-danger-500 flex-shrink-0">
                           A
                         </div>
                         <div className="relative ml-3 text-sm bg-white py-2 px-4 shadow rounded-xl">
@@ -195,12 +195,12 @@ const Page = () => {
                     </div>
                     <div className="col-start-1 col-end-8 p-3 rounded-lg">
                       <div className="flex flex-row items-center">
-                        <div className="flex items-center justify-center h-10 w-10 rounded-full bg-indigo-500 flex-shrink-0">
+                        <div className="flex items-center justify-center h-10 w-10 rounded-full bg-danger-500 flex-shrink-0">
                           A
                         </div>
                         <div className="relative ml-3 text-sm bg-white py-2 px-4 shadow rounded-xl">
                           <div className="flex flex-row items-center">
-                            <button className="flex items-center justify-center bg-indigo-600 hover:bg-indigo-800 rounded-full h-8 w-10">
+                            <button className="flex items-center justify-center bg-danger-600 hover:bg-danger-800 rounded-full h-8 w-10">
                               <svg
                                 className="w-6 h-6 text-white"
                                 fill="none"
@@ -285,7 +285,7 @@ const Page = () => {
                   <div className="relative w-full">
                     <input
                       type="text"
-                      className="flex w-full border rounded-xl focus:outline-none focus:border-indigo-300 pl-4 h-10"
+                      className="flex w-full border rounded-xl focus:outline-none focus:border-danger-300 pl-4 h-10"
                     />
                     <button className="absolute flex items-center justify-center h-full w-12 right-0 top-0 text-gray-400 hover:text-gray-600">
                       <svg
@@ -306,7 +306,7 @@ const Page = () => {
                   </div>
                 </div>
                 <div className="ml-4">
-                  <button className="flex items-center justify-center bg-indigo-500 hover:bg-indigo-600 rounded-xl text-white px-4 py-1 flex-shrink-0">
+                  <button className="flex items-center justify-center bg-danger-500 hover:bg-danger-600 rounded-xl text-white px-4 py-1 flex-shrink-0">
                     <span>Send</span>
                     <span className="ml-2">
                       <svg
