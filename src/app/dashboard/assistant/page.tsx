@@ -137,7 +137,7 @@ const Page = () => {
                           A
                         </div>
                         <div className="relative mr-3 text-sm bg-danger-100 py-2 px-4 shadow rounded-xl">
-                          <div>I'm ok what about you?</div>
+                          <div>I&apos;m ok what about you?</div>
                         </div>
                       </div>
                     </div>
